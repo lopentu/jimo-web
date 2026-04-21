@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孤獨寂寞——跨朝代語義演變</title>
+
+    <!-- Google Fonts -->
+
+    <!-- Bootstrap 5 -->
+    <link href="vendor/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link href="vendor/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* ── 全域 ── */
+        html { font-size: 18px; }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 400;
+            color: #333;
+        }
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+        }
+
+        /* ── Navbar ── */
+        #header { background: #141c25; }
+        .main-nav .nav-link {
+            color: rgba(255,255,255,0.75) !important;
+            font-weight: 600;
+            font-size: 0.88rem;
+            letter-spacing: 0.04em;
+            padding: 0.5rem 0.9rem !important;
+            transition: color 0.2s;
+        }
+        .main-nav .nav-link:hover { color: #098dcf !important; }
+
+        /* ── Hero ── */
+        #hero-block {
+            background: linear-gradient(135deg, #141c25 0%, #1a3352 100%);
+            padding: 130px 0 90px;
+            color: white;
+        }
+        .hero-heading {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+        .hero-sub {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 1rem;
+        }
+        .hero-meta {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+        .hero-tag {
+            display: inline-block;
+            background: rgba(9,141,207,0.25);
+            border: 1px solid rgba(9,141,207,0.6);
+            color: #7dd3fc;
+            padding: 0.2rem 0.8rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            margin: 0.2rem;
+            font-weight: 600;
+        }
+
+        /* ── Sections ── */
+        .section { padding: 80px 0; }
+        .section-heading {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #141c25;
+            margin-bottom: 1.5rem;
+        }
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: #098dcf;
+            margin: 0.6rem auto 0;
+        }
+        .theme-bg-light { background: #f4f7fa; }
+
+        /* ── 語義標籤表 ── */
+        .sense-table th {
+            background: #141c25;
+            color: white;
+            font-weight: 600;
+        }
+        .cluster-badge {
+            display: inline-block;
+            background: #e8f4fd;
+            color: #0369a1;
+            border-radius: 6px;
+            padding: 0.35rem 0.85rem;
+            font-size: 1rem;
+            margin: 0.25rem;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        /* ── 圖表卡片 ── */
+        .chart-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+            overflow: hidden;
+            margin-bottom: 0;
+            height: 100%;
+        }
+        .chart-card img { width: 100%; height: auto; display: block; }
+        .chart-card .chart-caption {
+            padding: 0.75rem 1.1rem;
+            font-size: 0.85rem;
+            color: #666;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* ── Finding 卡片 ── */
+        .finding-block {
+            background: white;
+            border-left: 4px solid #098dcf;
+            border-radius: 0 6px 6px 0;
+            padding: 1.1rem 1.4rem;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            height: 100%;
+        }
+        .finding-block h5 {
+            color: #098dcf;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.5rem;
+        }
+        .finding-block p {
+            margin: 0;
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: #444;
+        }
+        .finding-block ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.88rem;
+            line-height: 1.75;
+            color: #444;
+        }
+        .finding-block ul li {
+            margin-bottom: 0.65rem;
+        }
+        .finding-block ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ── Context neighbors tabs ── */
+        .nav-tabs { border-bottom: 2px solid #dee2e6; }
+        .nav-tabs .nav-link {
+            color: #6e8db1;
+            font-weight: 700;
+            font-size: 1.15rem;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 0.5rem 1.2rem;
+            margin-bottom: -2px;
+        }
+        .nav-tabs .nav-link.active {
+            color: #098dcf;
+            border-bottom: 3px solid #098dcf;
+            background: transparent;
+        }
+        .nav-tabs .nav-link:hover { color: #098dcf; }
+        .context-table { font-size: 0.88rem; }
+        .context-table td:first-child { font-weight: 700; white-space: nowrap; }
+        .cluster-section-heading {
+            color: #098dcf;
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.6rem;
+            padding-left: 0.5rem;
+            border-left: 3px solid #098dcf;
+        }
+        .cluster-analysis {
+            margin: 0.5rem 0 0 0.5rem;
+            padding-left: 1.1rem;
+            font-size: 0.85rem;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+        .cluster-analysis li { margin-bottom: 0.25rem; }
+        .freq-count { display: none; }
+
+        /* ── 統計卡片 ── */
+        .stat-card {
+            background: rgba(9,141,207,0.08);
+            border: 1px solid rgba(9,141,207,0.2);
+            border-radius: 8px;
+            padding: 1.5rem 1rem;
+        }
+        .stat-num {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #098dcf;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* ── LLM 佔位 ── */
+        #llm-section { background: #141c25; color: white; }
+        #llm-section .section-heading { color: white; }
+        #llm-section .section-heading::after { background: #098dcf; }
+        .llm-placeholder {
+            border: 2px dashed rgba(9,141,207,0.35);
+            border-radius: 12px;
+            padding: 3.5rem 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+        }
+        .llm-placeholder .llm-icon {
+            font-size: 3rem;
+            color: rgba(9,141,207,0.5);
+            margin-bottom: 1rem;
+        }
+        .llm-placeholder .llm-title {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.65);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* ── 語義詳情展開 ── */
+        .cluster-badge[data-cluster] { cursor: pointer; transition: background 0.15s, color 0.15s; }
+        .cluster-badge[data-cluster]:hover { background: #bfdbfe; }
+        .cluster-badge[data-cluster].active { background: #0369a1; color: white; }
+        .cluster-detail-panel {
+            background: #f0f7ff;
+            border-left: 4px solid #098dcf;
+            padding: 1.2rem 1.6rem;
+            font-size: 0.92rem;
+            line-height: 1.85;
+            color: #333;
+        }
+        .cluster-detail-panel .detail-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #0369a1;
+            margin-bottom: 0.4rem;
+        }
+        .cluster-detail-panel .detail-stat {
+            color: #888;
+            font-size: 0.82rem;
+            margin-bottom: 1rem;
+        }
+        .cluster-detail-panel .detail-label {
+            font-weight: 700;
+            color: #555;
+            margin-top: 0.75rem;
+            margin-bottom: 0.2rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .cluster-detail-panel p { margin: 0; }
+
+        /* ── LLM 輸入框 ── */
+        .llm-textarea {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.9);
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            width: 100%;
+            resize: vertical;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 1rem;
+            line-height: 2;
+            transition: border-color 0.2s;
+        }
+        .llm-textarea:focus {
+            outline: none;
+            border-color: #098dcf;
+            background: rgba(255,255,255,0.08);
+        }
+        .llm-textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+        /* ── 結果卡片 ── */
+        .llm-result-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        .llm-text-output {
+            font-size: 1.05rem;
+            line-height: 2.4;
+            color: rgba(255,255,255,0.88);
+            white-space: pre-wrap;
+        }
+
+        /* ── 場景 highlight ── */
+        .scene-span {
+            border-radius: 3px;
+            padding: 0.05em 0.15em;
+            cursor: default;
+            transition: opacity 0.15s;
+            position: relative;
+        }
+        .scene-span[data-label]::after {
+            content: attr(data-label);
+            position: absolute;
+            bottom: calc(100% + 5px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(15, 23, 32, 0.96);
+            color: rgba(255,255,255,0.92);
+            padding: 0.2rem 0.55rem;
+            border-radius: 5px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            border: 1px solid rgba(255,255,255,0.15);
+            z-index: 20;
+        }
+        .scene-span[data-label]:hover::after {
+            opacity: 1;
+        }
+        .scene-span:hover { opacity: 0.8; }
+        .scene-span.scene-空間孤絕 { background: rgba(59,130,246,0.28); border-bottom: 2px solid #60a5fa; }
+        .scene-span.scene-人際疏離 { background: rgba(249,115,22,0.28); border-bottom: 2px solid #fb923c; }
+        .scene-span.scene-時間孤寂 { background: rgba(139,92,246,0.28); border-bottom: 2px solid #a78bfa; }
+        .scene-span.scene-修行靜默 { background: rgba(34,197,94,0.28);  border-bottom: 2px solid #4ade80; }
+        .scene-span.scene-仕途失意 { background: rgba(239,68,68,0.28);  border-bottom: 2px solid #f87171; }
+        .scene-span.scene-喪親孤苦 { background: rgba(245,158,11,0.28); border-bottom: 2px solid #fbbf24; }
+
+        /* ── 圖例徽章 ── */
+        .scene-legend-badge {
+            display: inline-block;
+            padding: 0.25rem 0.85rem;
+            border-radius: 1rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+        .scene-legend-badge.scene-legend-空間孤絕 { background:rgba(59,130,246,0.18); color:#93c5fd; border:1px solid rgba(59,130,246,0.4); }
+        .scene-legend-badge.scene-legend-人際疏離 { background:rgba(249,115,22,0.18); color:#fdba74; border:1px solid rgba(249,115,22,0.4); }
+        .scene-legend-badge.scene-legend-時間孤寂 { background:rgba(139,92,246,0.18); color:#c4b5fd; border:1px solid rgba(139,92,246,0.4); }
+        .scene-legend-badge.scene-legend-修行靜默 { background:rgba(34,197,94,0.18);  color:#86efac; border:1px solid rgba(34,197,94,0.4); }
+        .scene-legend-badge.scene-legend-仕途失意 { background:rgba(239,68,68,0.18);  color:#fca5a5; border:1px solid rgba(239,68,68,0.4); }
+        .scene-legend-badge.scene-legend-喪親孤苦 { background:rgba(245,158,11,0.18); color:#fcd34d; border:1px solid rgba(245,158,11,0.4); }
+
+        /* ── 結果標籤 ── */
+        .scene-badge {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin: 0.15rem;
+        }
+        .scene-badge.scene-badge-空間孤絕 { background:rgba(59,130,246,0.2); color:#93c5fd; }
+        .scene-badge.scene-badge-人際疏離 { background:rgba(249,115,22,0.2); color:#fdba74; }
+        .scene-badge.scene-badge-時間孤寂 { background:rgba(139,92,246,0.2); color:#c4b5fd; }
+        .scene-badge.scene-badge-修行靜默 { background:rgba(34,197,94,0.2);  color:#86efac; }
+        .scene-badge.scene-badge-仕途失意 { background:rgba(239,68,68,0.2);  color:#fca5a5; }
+        .scene-badge.scene-badge-喪親孤苦 { background:rgba(245,158,11,0.2); color:#fcd34d; }
+
+        /* ── Footer ── */
+        footer {
+            background: #0d1520;
+            color: rgba(255,255,255,0.35);
+            padding: 2.5rem 0;
+            font-size: 0.82rem;
+        }
+
+        /* ── Concordance table ── */
+        .conc-table { width: 100%; font-size: 0.82rem; border-collapse: collapse; font-family: 'Noto Sans TC', sans-serif; }
+        .conc-table td { padding: 0.3rem 0.5rem; vertical-align: middle; }
+        .conc-table tr:hover { background: #e8f4fd; }
+        .conc-left  { text-align: right; color: #555; white-space: nowrap; }
+        .conc-key   { text-align: center; font-weight: 800; color: #0369a1; white-space: nowrap; }
+        .conc-right { color: #555; white-space: nowrap; }
+        .conc-src   { color: #aaa; font-size: 0.75rem; white-space: nowrap; padding-left: 1rem; }
+
+        /* ── scroll offset ── */
+        [id] { scroll-margin-top: 72px; }
+    </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#navMenu" data-bs-offset="80">
+
+<!-- ── Navbar ── -->
+<header id="header" class="fixed-top">
+    <div class="container-fluid px-4">
+        <nav class="navbar navbar-expand-lg main-nav">
+            <a class="navbar-brand text-white fw-bold me-4"
+               href="#hero-block"
+               style="font-family: Montserrat, sans-serif; letter-spacing: 0.08em; font-size: 1rem;">
+                孤・獨・寂・寞
+            </a>
+            <button class="navbar-toggler border-secondary" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about-section">研究說明</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#labels-section">語義標籤</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proportion-section">比例折線圖</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#heatmap-section">語義熱力圖</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#context-section">最近鄰詞彙</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#llm-section">場景標注</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ── Hero ── -->
+<div id="hero-block">
+    <div class="container text-center">
+        <h1 class="hero-heading">孤・獨・寂・寞</h1>
+        <div class="hero-sub" style="font-size:1.6rem; color:rgba(255,255,255,0.9); margin-bottom:1.5rem;">人文 AI 共智未來先導計劃：寂寞的跨朝代語義演變分析</div>
+        <div style="color:rgba(255,255,255,0.5); font-size:0.85rem; line-height:2.2;">
+            <div style="display:inline-grid; grid-template-columns: max-content auto; gap: 0 1em; text-align:left;">
+                <span>國立臺灣大學語言學研究所</span><span>謝舒凱教授　陳韋伶　葉朗敬　林濬祺</span>
+                <span>國立臺灣大學中國文學系</span><span>鄭毓瑜教授　陳占揚</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ── Section 1：研究說明 ── -->
+<section id="about-section" class="section theme-bg-light">
+    <div class="container">
+        <h2 class="section-heading text-center">研究說明</h2>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-7">
+                <p style="font-size:1rem; line-height:2.1; color:#444;">
+                    本研究以「孤」、「獨」、「寂」、「寞」及「寂寞」五個漢語詞彙為對象，以涵蓋唐至清的大規模傳世文獻為語料，
+                    利用預訓練模型擷取各字的語境特徵，並將用法相近的例句聚合成群。
+                    歸納完成後，以 <strong>大型語言模型（LLM）</strong> 輔助研究者閱讀語境例句、為各群命名，
+                    從而追蹤這五個詞在唐、宋元、明、清四個朝代區間的語義歷時演變。
+                </p>
+                <p style="font-size:1rem; line-height:2; color:#444; margin-bottom:0.5rem;">
+                    本研究使用自建的 <strong>Historical Chinese Corpus</strong> 語料庫，語料整合自以下三個資料庫：
+                </p>
+                <ul style="font-size:0.92rem; line-height:2; color:#555; padding-left:1.4rem;">
+                    <li><strong>CTEXT</strong>（Chinese Text Project）——收錄先秦至近代傳統漢籍文獻</li>
+                    <li><strong>CBETA</strong>（Chinese Buddhist Electronic Text Association）——漢文佛典電子資料庫</li>
+                    <li><strong>Kanripo</strong>（漢籍リポジトリ）——開放取用的前現代漢籍數位典藏庫</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-4 col-md-2">
+                <div class="stat-card text-center">
+                    <div class="stat-num">5</div>
+                    <div class="stat-label">目標詞彙</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2">
+                <div class="stat-card text-center">
+                    <div class="stat-num">4</div>
+                    <div class="stat-label">朝代區間</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2">
+                <div class="stat-card text-center">
+                    <div class="stat-num">36,703</div>
+                    <div class="stat-label">語料例句</div>
+                </div>
+            </div>
+            <div class="col-4 col-md-2">
+                <div class="stat-card text-center">
+                    <div class="stat-num">23</div>
+                    <div class="stat-label">語義群</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Section 2：語義標籤 ── -->
+<section id="labels-section" class="section">
+    <div class="container">
+        <h2 class="section-heading text-center">語義標籤一覽</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered sense-table">
+                <thead>
+                    <tr>
+                        <th style="width:55px;">詞</th>
+                        <th style="width:55px;" class="text-center">群數</th>
+                        <th>分群語義標籤</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold fs-5 align-middle text-center">孤</td>
+                        <td class="text-center align-middle">5</td>
+                        <td>
+                            <span class="cluster-badge" data-word="孤" data-cluster="C1">C1 孤景/漂泊</span>
+                            <span class="cluster-badge" data-word="孤" data-cluster="C2">C2 失怙/喪親</span>
+                            <span class="cluster-badge" data-word="孤" data-cluster="C3">C3 勢孤/特出</span>
+                            <span class="cluster-badge" data-word="孤" data-cluster="C4">C4 君稱/官稱</span>
+                            <span class="cluster-badge" data-word="孤" data-cluster="C5">C5 名物/負義</span>
+                        </td>
+                    </tr>
+                    <tr id="detail-row-孤" style="display:none;">
+                        <td colspan="3" style="padding:0;">
+                            <div id="detail-panel-孤" class="cluster-detail-panel"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold fs-5 align-middle text-center">獨</td>
+                        <td class="text-center align-middle">5</td>
+                        <td>
+                            <span class="cluster-badge" data-word="獨" data-cluster="C1">C1 單處/孤行</span>
+                            <span class="cluster-badge" data-word="獨" data-cluster="C2">C2 非但/豈止</span>
+                            <span class="cluster-badge" data-word="獨" data-cluster="C3">C3 特出/專守</span>
+                            <span class="cluster-badge" data-word="獨" data-cluster="C4">C4 佛典/專名</span>
+                            <span class="cluster-badge" data-word="獨" data-cluster="C5">C5 特指/唯此</span>
+                        </td>
+                    </tr>
+                    <tr id="detail-row-獨" style="display:none;">
+                        <td colspan="3" style="padding:0;">
+                            <div id="detail-panel-獨" class="cluster-detail-panel"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold fs-5 align-middle text-center">寂</td>
+                        <td class="text-center align-middle">5</td>
+                        <td>
+                            <span class="cluster-badge" data-word="寂" data-cluster="C1">C1 寂寥/冷清</span>
+                            <span class="cluster-badge" data-word="寂" data-cluster="C2">C2 幽寂/靜定</span>
+                            <span class="cluster-badge" data-word="寂" data-cluster="C3">C3 寂靜/寂滅</span>
+                            <span class="cluster-badge" data-word="寂" data-cluster="C4">C4 本體/感應</span>
+                            <span class="cluster-badge" data-word="寂" data-cluster="C5">C5 清寂/孤寂</span>
+                        </td>
+                    </tr>
+                    <tr id="detail-row-寂" style="display:none;">
+                        <td colspan="3" style="padding:0;">
+                            <div id="detail-panel-寂" class="cluster-detail-panel"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold fs-5 align-middle text-center">寞</td>
+                        <td class="text-center align-middle">3</td>
+                        <td>
+                            <span class="cluster-badge" data-word="寞" data-cluster="C1">C1 典籍/儀注</span>
+                            <span class="cluster-badge" data-word="寞" data-cluster="C2">C2 幽寂/落寞</span>
+                            <span class="cluster-badge" data-word="寞" data-cluster="C3">C3 辭賦</span>
+                        </td>
+                    </tr>
+                    <tr id="detail-row-寞" style="display:none;">
+                        <td colspan="3" style="padding:0;">
+                            <div id="detail-panel-寞" class="cluster-detail-panel"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold fs-5 align-middle text-center">寂寞</td>
+                        <td class="text-center align-middle">3</td>
+                        <td>
+                            <span class="cluster-badge" data-word="寂寞" data-cluster="C1">C1 蕭條/荒廢</span>
+                            <span class="cluster-badge" data-word="寂寞" data-cluster="C2">C2 孤寂/失意</span>
+                            <span class="cluster-badge" data-word="寂寞" data-cluster="C3">C3 空寂/玄理</span>
+                        </td>
+                    </tr>
+                    <tr id="detail-row-寂寞" style="display:none;">
+                        <td colspan="3" style="padding:0;">
+                            <div id="detail-panel-寂寞" class="cluster-detail-panel"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- ── Section 3：比例折線圖 ── -->
+<section id="proportion-section" class="section theme-bg-light">
+    <div class="container">
+        <h2 class="section-heading text-center">語義比例折線圖</h2>
+        <p class="text-center text-muted mb-4" style="font-size:0.88rem;">
+            各語義群在四個朝代區間語料中的比例分佈（%）
+        </p>
+
+        <ul class="nav nav-tabs justify-content-center mb-0" id="proportionTabs">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#prop-孤">孤</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#prop-獨">獨</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#prop-寂">寂</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#prop-寞">寞</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#prop-寂寞">寂寞</button></li>
+        </ul>
+
+        <div class="tab-content bg-white rounded-bottom shadow-sm p-4 p-lg-5">
+
+            <div class="tab-pane fade show active" id="prop-孤">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <img src="../figs_clean/sense_proportion_孤.png" alt="孤 語義比例" style="width:100%;height:auto;border-radius:6px;">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="finding-block">
+                            <h5>趨勢觀察</h5>
+                            <ul>
+                                <li><strong>孤景／漂泊</strong>（C1）：明代達高峰（26%），清代驟降至 13%。</li>
+                                <li><strong>勢孤／特出</strong>（C3）：始終是最大群，從唐代 34% 持續攀升至清代 48%，顯示「孤」的核心義越來越集中在「孤立無援」或「卓立不群」的抽象意涵。</li>
+                                <li><strong>君稱／官稱</strong>（C4）：明代急遽萎縮（唐 9.5% → 明 0.7%），君主自稱「孤」的禮制用法在明代後幾乎消失。</li>
+                                <li><strong>名物／負義</strong>（C5）：穩定維持約 25%，四代變化不大。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="prop-獨">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <img src="../figs_clean/sense_proportion_獨.png" alt="獨 語義比例" style="width:100%;height:auto;border-radius:6px;">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="finding-block">
+                            <h5>趨勢觀察</h5>
+                            <ul>
+                                <li><strong>單處／孤行</strong>（C1）：緩慢下滑（唐 25% → 清 21%）。</li>
+                                <li><strong>非但／豈止</strong>（C2）：逐代小幅成長（唐 4% → 清 9%）。</li>
+                                <li><strong>特出／專守</strong>（C3）：全程主導，約占語料一半，清代更跳升至 56%。</li>
+                                <li><strong>佛典／專名</strong>（C4）：唐代占 4%，宋元後驟降至近乎零，「給孤獨園」佛典語境的斷裂在比例上清晰可見。</li>
+                                <li><strong>特指／唯此</strong>（C5）：唐至明持續上升後，清代回落至 14%。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="prop-寂">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <img src="../figs_clean/sense_proportion_寂.png" alt="寂 語義比例" style="width:100%;height:auto;border-radius:6px;">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="finding-block">
+                            <h5>趨勢觀察</h5>
+                            <ul>
+                                <li><strong>幽寂／靜定</strong>（C2）：始終是最大群（唐 36% → 清 30%），但逐代溫和下降。</li>
+                                <li><strong>寂靜／寂滅</strong>（C3）：宋元急降（唐 29% → 宋元 14%），反映佛教術語語境的收縮，明代局部回升後清代再降。</li>
+                                <li><strong>本體／感應</strong>（C4）：持續攀升，從唐代 7% 穩步增至清代 25%，成為清代第二大群，上升軌跡與宋明理學「寂感論」的興盛高度吻合。</li>
+                                <li>兩條線（佛教義下降、理學義上升）在清代幾乎交叉。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="prop-寞">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <img src="../figs_clean/sense_proportion_寞.png" alt="寞 語義比例" style="width:100%;height:auto;border-radius:6px;">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="finding-block">
+                            <h5>趨勢觀察</h5>
+                            <ul>
+                                <li><strong>典籍／儀注</strong>（C1）：明代升至 46%，用法重心移向非抒情文體。</li>
+                                <li><strong>幽寂／落寞</strong>（C2）：宋元達到 61% 峰值，為五個詞中單一語義群的最高比例，「索寞」「落寞」複合詞的爆發是直接原因；明代大幅回落至 34%，清代再回升至 46%，核心情感義再度活躍。</li>
+                                <li><strong>辭賦</strong>（C3）：唐 24%，宋元驟降至 10%，明代回升至 21%，清代略降至 18%，整體波動明顯。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="prop-寂寞">
+                <div class="row g-4 align-items-start">
+                    <div class="col-lg-7">
+                        <img src="../figs_clean/sense_proportion_寂寞.png" alt="寂寞 語義比例" style="width:100%;height:auto;border-radius:6px;">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="finding-block">
+                            <h5>趨勢觀察</h5>
+                            <ul>
+                                <li><strong>蕭條／荒廢</strong>（C1）：唐代約占 35%，宋元後驟降至 19%，外在景物義逐漸式微。</li>
+                                <li><strong>孤寂／失意</strong>（C2）：唐代約 35%，宋元急升至 59%，此後穩定維持語料一半左右。</li>
+                                <li><strong>空寂／玄理</strong>（C3）：唐（30%）、明（29%）、清（30%）間高度穩定，僅宋元因情感義爆發而相對壓縮至 22%，顯示「寂寞」的哲理用法在各朝代始終保有穩定的話語空間。</li>
+                                <li>唐→宋元是關鍵轉折：語義重心從場景義轉向人事情感義，反映「寂寞」複合詞的詞彙化在宋代已相當成熟。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── Section 4：語義熱力圖 ── -->
+<section id="heatmap-section" class="section">
+    <div class="container">
+        <h2 class="section-heading text-center">跨字語義群相似度熱力圖</h2>
+        <p class="text-center text-muted mb-5" style="font-size:0.88rem;">
+            各語義群兩兩之間的語義相似程度，依四個朝代分別呈現。紅色愈深代表兩群用法愈接近，藍色代表差異愈大。
+        </p>
+
+        <ul class="nav nav-tabs justify-content-center mb-0" id="heatmapTabs">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#heat-孤獨">孤 × 獨</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#heat-寂寞">寂 × 寞</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#heat-寂寞寂">寂寞 × 寂</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#heat-寂寞寞">寂寞 × 寞</button></li>
+        </ul>
+
+        <div class="tab-content bg-white rounded-bottom shadow-sm p-4 p-lg-5">
+
+            <div class="tab-pane fade show active" id="heat-孤獨">
+                <img src="../figs_clean/sense_sim_孤_獨_by_dynasty.png" alt="孤×獨" class="mb-4" style="width:100%;height:auto;border-radius:6px;">
+                <div class="finding-block">
+                    <h5>趨勢觀察</h5>
+                    <p class="mb-3"><strong>整體格局</strong>：矩陣幾乎全面負值，顯示「孤」「獨」雖語義相關，在語境分佈上卻高度分離，兩字並非可互換的同義詞。</p>
+                    <ul>
+                        <li><strong>孤C1 × 獨C1</strong>（孤景／漂泊 × 單處／孤行）：全矩陣中最接近零（唐 −0.04、宋元 +0.03、明 +0.01、清 −0.08），是兩字語境最相近的配對，但數值仍低且不穩定。</li>
+                        <li><strong>孤C3 × 獨C3</strong>（勢孤／特出 × 特出／專守）：標籤相似，數值卻持續強負（唐 −0.56、清 −0.63），且清代更疏離，說明兩字「特出」義的語境脈絡截然不同。</li>
+                        <li><strong>孤C4 × 獨各群</strong>（君稱／官稱）：整排數值在孤所有語義群中最接近零，禮制稱謂用法中性，不像情感義或景物義那樣強烈排斥「獨」的語境。</li>
+                        <li><strong>孤C5 × 獨C4</strong>（名物／負義 × 佛典／專名）：唐代 +0.18，是矩陣中唯一明顯正值，兩者均屬非情感性的固定用法，語境背景相似。然而獨C4 在宋元即幾乎消失（0 筆），明清僅餘 2–3 筆，唐代之後整欄皆為缺值，此配對的語境交集隨佛典專名用法退場而終止。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="heat-寂寞">
+                <img src="../figs_clean/sense_sim_寂_寞_by_dynasty.png" alt="寂×寞" class="mb-4" style="width:100%;height:auto;border-radius:6px;">
+                <div class="finding-block">
+                    <h5>趨勢觀察</h5>
+                    <p class="mb-3"><strong>整體格局</strong>：矩陣呈現鮮明的結構分化——寂C2（幽寂／靜定）是唯一與寞三群均呈正值的列，其餘寂語義群與寞C2（幽寂／落寞）全面負值。兩字雖共享孤寂語義，語境分佈卻高度分離，交集幾乎收斂於「靜定」一義。</p>
+                    <ul>
+                        <li><strong>寂C2 × 寞C1／寞C3</strong>（幽寂／靜定 × 典籍／儀注、辭賦）：矩陣數值最高的兩個配對，宋元達峰（+0.50、+0.49），顯示「靜定」語境與典籍儀注及辭賦文體高度重疊，宋元後維持強正值。</li>
+                        <li><strong>寂C2 × 寞C2</strong>（幽寂／靜定 × 幽寂／落寞）：唯一呈單調上升趨勢（唐 +0.04 → 宋元 +0.21 → 明 +0.22 → 清 +0.22），「靜定」是兩字情感義逐漸靠近的橋樑。</li>
+                        <li><strong>寂C1 × 寞C2</strong>（寂寥／冷清 × 幽寂／落寞）：全矩陣負值最強（唐 −0.52、宋元 −0.59、明 −0.50、清 −0.55），同為孤寂語義，語境卻最為疏離，顯示「冷清」與「落寞」在文本脈絡上截然不同。</li>
+                        <li><strong>寂C3 × 寞C2</strong>（寂靜／寂滅 × 幽寂／落寞）：持續穩定負值（約 −0.23 至 −0.27），佛教寂滅義的語境與「寞」的情感義四代均無交集。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="heat-寂寞寂">
+                <img src="../figs_clean/sense_sim_寂寞_寂_by_dynasty.png" alt="寂寞×寂" class="mb-4" style="width:100%;height:auto;border-radius:6px;">
+                <div class="finding-block">
+                    <h5>趨勢觀察</h5>
+                    <p class="mb-3"><strong>整體格局</strong>：矩陣幾乎全面負值，顯示「寂寞」作為複合詞已高度詞彙化，與單字「寂」的語境分佈全面分離。唯一的例外是寂寞C3（空寂／玄理）× 寂C2（幽寂／靜定），呈持續正值，是兩者語境的唯一橋樑。換言之，寂寞的詞彙化是透過「情感義」完成的，哲學義則是還沒有完全分開的那條線。</p>
+                    <ul>
+                        <li><strong>寂寞C2 × 寂C2</strong>（孤寂／失意 × 幽寂／靜定）：全矩陣絕對值最大的配對，四代持續強負（唐 −0.78、宋元 −0.83、明 −0.88、清 −0.82），兩者雖同含靜寂語義，詞彙化後的情感義與單字的靜定義截然分化。</li>
+                        <li><strong>寂寞C3 × 寂C2</strong>（空寂／玄理 × 幽寂／靜定）：全矩陣唯一持續正值配對（唐 +0.30、宋元 +0.12、明 +0.23、清 +0.26），哲學虛靜語境跨越了詞彙化的界線，是「寂寞」與「寂」保持語境交集的唯一橋樑。</li>
+                        <li><strong>寂寞C3 × 寂C4</strong>（空寂／玄理 × 本體／感應）：次要正值（唐 +0.14、明 +0.13、清 +0.13），宋元接近零，儒道哲學脈絡在唐、明、清有微弱交集。</li>
+                        <li><strong>寂寞C1 × 寂C3／寂C4</strong>（蕭條／荒廢 × 寂靜／寂滅、本體／感應）：四代均為中強負值（約 −0.45 至 −0.62），荒廢場景義與佛教及哲學語境的分離尤為顯著。</li>
+                        <li><strong>寂寞C1 × 寂C5</strong>（蕭條／荒廢 × 清寂／孤寂）：寂寞C1 列中絕對值最小的配對（唐 −0.12、宋元 −0.26、明 −0.25、清 −0.24），兩者均帶有景物或空間的孤冷感，是「蕭條／荒廢」與「寂」之間語境距離最小的交集。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="heat-寂寞寞">
+                <img src="../figs_clean/sense_sim_寂寞_寞_by_dynasty.png" alt="寂寞×寞" class="mb-4" style="width:100%;height:auto;border-radius:6px;">
+                <div class="finding-block">
+                    <h5>趨勢觀察</h5>
+                    <p class="mb-3"><strong>整體格局</strong>：與「寂寞×寂」明顯不同，此矩陣呈現較多正值，顯示「寂寞」與單字「寞」保有較多語境交集。寂寞C3（空寂／玄理）與寞三群全面正值，寂寞C1（蕭條／荒廢）× 寞C2（幽寂／落寞）亦持續正值；只有寂寞C2（孤寂／失意）整列負值，延續了詞彙化後情感義的語境分離。</p>
+                    <ul>
+                        <li><strong>寂寞C3 × 寞C2</strong>（空寂／玄理 × 幽寂／落寞）：矩陣最高正值，四代持續強正（唐 +0.54、宋元 +0.34、明 +0.34、清 +0.46），哲學虛靜語境與「寞」的幽寂情感義高度重疊。</li>
+                        <li><strong>寂寞C3 × 寞C3</strong>（空寂／玄理 × 辭賦）：次強正值（唐 +0.38、宋元 +0.23、明 +0.29、清 +0.36），辭賦文體的空曠靜寂氛圍與「空寂／玄理」語境相近，四代穩定。</li>
+                        <li><strong>寂寞C1 × 寞C2</strong>（蕭條／荒廢 × 幽寂／落寞）：四代持續正值（唐 +0.27、宋元 +0.18、明 +0.15、清 +0.22），荒廢場景義與落寞情感義在語境上互相呼應。</li>
+                        <li><strong>寂寞C2 × 寞C3</strong>（孤寂／失意 × 辭賦）：寂寞C2 列中負值最強（唐 −0.31、宋元 −0.34、明 −0.31、清 −0.28），情感失落義與辭賦文體語境最為疏離。</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ── Section 5：最近鄰詞彙 ── -->
+<section id="context-section" class="section theme-bg-light">
+    <div class="container">
+        <h2 class="section-heading text-center">最近鄰詞彙演變</h2>
+        <p class="text-center text-muted mb-4" style="font-size:0.88rem;">
+            各朝代語料中，與關鍵詞最常同時出現（前後各 10 字以內）的 10 個字
+        </p>
+
+        <!-- 五字 tabs -->
+        <ul class="nav nav-tabs justify-content-center mb-0" id="contextTabs">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#ctx-孤">孤</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ctx-獨">獨</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ctx-寂">寂</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ctx-寞">寞</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#ctx-寂寞">寂寞</button></li>
+        </ul>
+
+        <div class="tab-content bg-white rounded-bottom shadow-sm p-4">
+
+            <!-- 孤 -->
+            <div class="tab-pane fade show active" id="ctx-孤">
+                <p class="cluster-section-heading">C1　孤景／漂泊</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>雲(93) 山(80) 月(65) 人(60) 一(59) 風(52) 天(50) 水(49) 日(46) 舟(44)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>雲(115) 山(101) 人(78) 城(62) 一(61) 水(61) 舟(58) 詩(56) 風(55) 月(52)</td><td>城 詩</td><td>天 日</td></tr>
+                        <tr><td>明</td><td>雲(105) 月(104) 山(91) 水(77) 一(73) 江(65) 上(65) 舟(62) 夜(60) 日(59)</td><td>上 夜 日 江</td><td>人 城 詩 風</td></tr>
+                        <tr><td>清</td><td>雲(61) 一(59) 山(55) 峰(49) 月(44) 人(34) 風(30) 天(28) 上(28) 水(28)</td><td>人 天 峰 風</td><td>夜 日 江 舟</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「雲山月」自然意象貫穿四代，整體穩定。</li>
+                    <li>清代「峰」(49)新進、「舟」退出，空間意象從水平漂流轉向垂直昂立。</li>
+                </ul>
+                <p class="cluster-section-heading">C2　失怙／喪親</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>子(54) 人(50) 曰(39) 母(39) 父(37) 少(34) 年(29) 某(26) 公(24) 養(22)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>人(48) 十(44) 年(43) 諸(41) 子(40) 公(33) 父(30) 君(29) 先(27) 月(25)</td><td>先 十 君 月 諸</td><td>少 曰 某 母 養</td></tr>
+                        <tr><td>明</td><td>子(28) 人(27) 母(26) 諸(25) 少(24) 曰(21) 生(21) 遺(20) 父(20) 先(20)</td><td>少 曰 母 生 遺</td><td>公 十 君 年 月</td></tr>
+                        <tr><td>清</td><td>母(49) 人(47) 子(46) 撫(43) 年(38) 十(38) 少(35) 氏(34) 生(26) 曰(24)</td><td>十 年 撫 氏</td><td>先 父 諸 遺</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>清代「撫」(43)高頻新進，孤兒撫養語境具體化。</li>
+                    <li>「父」同步消失——父的缺席被撫養者取代。</li>
+                </ul>
+                <p class="cluster-section-heading">C3　勢孤／特出</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>人(96) 曰(93) 子(87) 一(68) 何(67) 獨(62) 山(61) 相(60) 生(58) 自(57)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>人(103) 一(92) 山(83) 自(77) 天(70) 子(65) 立(65) 臣(57) 下(55) 生(53)</td><td>下 天 立 臣</td><td>何 曰 獨 相</td></tr>
+                        <tr><td>明</td><td>人(122) 一(122) 月(108) 日(87) 時(84) 山(79) 子(75) 自(71) 如(70) 生(68)</td><td>如 日 時 月</td><td>下 天 立 臣</td></tr>
+                        <tr><td>清</td><td>一(163) 人(108) 山(107) 天(91) 行(87) 上(83) 中(79) 生(79) 如(75) 子(74)</td><td>上 中 天 行</td><td>日 時 月 自</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「獨」(62)為第六高頻字；宋元後「獨」退出此群，「孤獨」並列搭配在唐代最密，其後兩字逐漸分離。</li>
+                </ul>
+                <p class="cluster-section-heading">C4　君稱／官稱</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>卿(95) 公(89) 三(85) 大(68) 曰(57) 子(47) 命(47) 王(46) 下(34) 諸(32)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>卿(108) 大(91) 三(65) 公(62) 命(57) 子(49) 曰(48) 侯(43) 王(41) 諸(38)</td><td>侯</td><td>下</td></tr>
+                        <tr><td>明</td><td>曰(9) 君(6) 利(5) 明(4) 于(4) 子(4) 敢(3) 公(3) 益(3) 人(3)</td><td>于 人 利 君 敢 明 益</td><td>三 侯 卿 命 大 王 諸</td></tr>
+                        <tr><td>清</td><td>大(21) 曰(21) 君(19) 卿(16) 公(15) 子(13) 禮(11) 國(10) 于(10) 必(10)</td><td>卿 國 大 必 禮</td><td>人 利 敢 明 益</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>明代樣本驟減（top-10 最高頻僅個位數），用法邊緣化。</li>
+                </ul>
+                <p class="cluster-section-heading">C5　名物／負義</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>獨(298) 在(112) 時(110) 給(106) 國(106) 一(99) 園(99) 佛(99) 樹(87) 舍(85)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>山(117) 獨(97) 一(72) 人(66) 自(52) 子(51) 大(50) 是(41) 立(40) 詩(39)</td><td>人 大 子 山 是 立 自 詩</td><td>佛 國 園 在 時 樹 給 舍</td></tr>
+                        <tr><td>明</td><td>山(183) 云(112) 曰(82) 負(76) 一(71) 人(64) 師(59) 是(58) 月(53) 自(49)</td><td>云 師 曰 月 負</td><td>大 子 獨 立 詩</td></tr>
+                        <tr><td>清</td><td>負(104) 獨(97) 寡(89) 曰(83) 一(75) 子(67) 山(66) 大(62) 人(61) 是(59)</td><td>大 子 寡 獨</td><td>云 師 月 自</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「給孤獨園佛樹舍衛祇」高頻，「給孤獨園」佛典語境主導。</li>
+                    <li>宋元後上述佛典字詞全面消失，語境斷裂顯著。</li>
+                    <li>清代「負」(104)、「寡」(89)主導，「孤負（辜負）」「孤寡」語境確立。</li>
+                </ul>
+            </div>
+
+            <!-- 獨 -->
+            <div class="tab-pane fade" id="ctx-獨">
+                <p class="cluster-section-heading">C1　單處／孤行</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>孤(152) 人(101) 行(70) 一(63) 曰(63) 如(60) 是(59) 覺(55) 上(51) 處(48)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>詩(108) 人(90) 子(75) 立(66) 孤(64) 一(64) 天(56) 行(53) 自(50) 中(47)</td><td>中 天 子 立 自 詩</td><td>上 如 是 曰 處 覺</td></tr>
+                        <tr><td>明</td><td>人(71) 一(69) 天(56) 坐(55) 日(54) 覺(54) 自(47) 山(46) 時(46) 我(46)</td><td>坐 山 我 日 時 覺</td><td>中 子 孤 立 行 詩</td></tr>
+                        <tr><td>清</td><td>一(88) 孤(76) 人(60) 曰(58) 上(57) 覺(57) 自(56) 天(54) 中(45) 我(43)</td><td>上 中 孤 曰</td><td>坐 山 日 時</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「孤」搭配呈 U 形——唐(152)→宋元(64)→明代消失→清代復現(76)。</li>
+                    <li>與孤C3「獨」退出的走向形成鏡像：兩字「孤獨」並列在唐代最密，宋明分離，清代再度靠近。</li>
+                </ul>
+                <p class="cluster-section-heading">C2　非但／豈止</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>非(35) 知(17) 人(16) 行(13) 如(12) 何(12) 言(11) 二(11) 是(10) 在(9)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>非(48) 人(41) 子(24) 是(23) 哉(22) 何(17) 大(16) 一(16) 如(14) 利(14)</td><td>一 利 哉 大 子</td><td>二 在 知 行 言</td></tr>
+                        <tr><td>明</td><td>一(40) 非(39) 哉(35) 是(26) 人(24) 生(16) 法(15) 能(15) 得(14) 心(14)</td><td>得 心 法 生 能</td><td>何 利 大 如 子</td></tr>
+                        <tr><td>清</td><td>一(37) 人(37) 非(30) 子(23) 見(22) 天(19) 是(18) 我(18) 事(17) 生(16)</td><td>事 天 子 我 見</td><td>哉 得 心 法 能</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「非」始終第一高頻，虛詞副詞用法跨代穩定，是四個語義群中語義最保守的一群。</li>
+                </ul>
+                <p class="cluster-section-heading">C3　特出／專守</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>人(189) 一(153) 行(150) 是(149) 子(125) 我(122) 得(112) 時(111) 自(111) 如(108)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>人(180) 一(122) 子(115) 能(103) 得(100) 天(93) 是(89) 曰(87) 道(83) 故(81)</td><td>天 故 曰 能 道</td><td>如 我 時 自 行</td></tr>
+                        <tr><td>明</td><td>人(164) 一(164) 中(104) 生(103) 是(101) 故(97) 得(89) 如(88) 自(87) 行(83)</td><td>中 如 生 自 行</td><td>天 子 曰 能 道</td></tr>
+                        <tr><td>清</td><td>一(204) 人(200) 故(116) 中(115) 上(104) 大(98) 子(96) 曰(90) 何(89) 見(87)</td><td>上 何 大 子 曰 見</td><td>如 得 是 生 自 行</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>清代「上」「大」「見」進入，語境偏向議論文體（「獨見」「獨大」類表達）。</li>
+                </ul>
+                <p class="cluster-section-heading">C4　佛典／專名</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>佛(87) 時(84) 祇(83) 樹(83) 國(83) 給(82) 孤(82) 園(82) 舍(79) 衛(79)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>—</td><td>—</td><td>佛 國 園 孤 時 樹 祇 給 舍 衛</td></tr>
+                        <tr><td>明</td><td>佛(2) 在(2) 給(2) 孤(2) 園(2) 沙(1) 門(1) 釋(1) 義(1) 淨(1)</td><td>佛 園 在 孤 沙 淨 給 義 釋 門</td><td>—</td></tr>
+                        <tr><td>清</td><td>在(3) 給(3) 孤(3) 園(3) 大(3) 眾(2) 千(2) 二(2) 百(2) 五(2)</td><td>二 五 千 大 百 眾</td><td>佛 沙 淨 義 釋 門</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「佛祇樹國給孤園舍衛」滿載「給孤獨園」佛典語境；宋元樣本歸零（0 筆）。</li>
+                    <li>對應孤C5 同步清空，兩字的佛典語境同時在宋代斷裂。</li>
+                </ul>
+                <p class="cluster-section-heading">C5　特指／唯此</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>王(96) 人(95) 曰(90) 子(71) 何(67) 皆(58) 下(51) 臣(42) 一(41) 諸(40)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>人(117) 何(94) 子(78) 一(61) 皆(55) 可(51) 曰(47) 言(43) 哉(43) 書(37)</td><td>可 哉 書 言</td><td>下 王 臣 諸</td></tr>
+                        <tr><td>明</td><td>人(118) 何(86) 曰(75) 子(62) 公(61) 一(60) 可(57) 能(46) 天(45) 生(41)</td><td>公 天 生 能</td><td>哉 書 皆 言</td></tr>
+                        <tr><td>清</td><td>皆(62) 人(61) 曰(46) 何(46) 一(42) 言(39) 五(34) 子(30) 可(30) 上(29)</td><td>上 五 皆 言</td><td>公 天 生 能</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「王」(96)高頻，帝王語境顯著。</li>
+                    <li>宋元後「王」「臣」消失，帝王語境退出，語義重心轉向一般人稱。</li>
+                </ul>
+            </div>
+
+            <!-- 寂 -->
+            <div class="tab-pane fade" id="ctx-寂">
+                <p class="cluster-section-heading">C1　寂寥／冷清</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>寥(178) 人(80) 山(57) 空(44) 風(42) 一(42) 春(39) 曰(39) 花(38) 兮(37)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>寥(224) 人(109) 山(81) 春(78) 風(77) 一(76) 花(61) 落(54) 月(51) 日(45)</td><td>日 月 落</td><td>兮 曰 空</td></tr>
+                        <tr><td>明</td><td>寥(130) 人(63) 山(50) 莫(46) 花(36) 雲(35) 風(35) 中(34) 空(33) 天(33)</td><td>中 天 空 莫 雲</td><td>一 日 春 月 落</td></tr>
+                        <tr><td>清</td><td>寥(152) 一(58) 人(55) 山(52) 詩(41) 中(38) 風(35) 生(34) 雲(30) 聲(30)</td><td>一 生 聲 詩</td><td>天 空 花 莫</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「寥」始終第一（178→224→130→152），「寂寥」複合詞主導整個語義群。</li>
+                    <li>「兮」(37)唐代可見（辭賦體），宋元後消失。</li>
+                </ul>
+                <p class="cluster-section-heading">C2　幽寂／靜定</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>如(170) 來(131) 一(129) 人(127) 心(122) 是(108) 定(101) 行(93) 南(93) 諸(87)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>一(140) 人(101) 山(72) 如(59) 自(50) 空(50) 是(47) 生(46) 心(46) 中(45)</td><td>中 山 生 空 自</td><td>來 南 定 行 諸</td></tr>
+                        <tr><td>明</td><td>人(99) 一(88) 心(86) 山(65) 是(58) 空(58) 中(54) 道(54) 生(52) 滅(50)</td><td>滅 道</td><td>如 自</td></tr>
+                        <tr><td>清</td><td>一(101) 山(80) 人(60) 空(59) 聲(54) 如(50) 見(47) 中(46) 生(46) 天(46)</td><td>天 如 聲 見</td><td>心 是 滅 道</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「如」(170)「來」(131)「南」(93)顯示「如來」「南無」佛典語境。</li>
+                    <li>宋元「山」「自」進入，佛典色彩淡化，轉向山林自然語境。</li>
+                    <li>清代「聲」(54)「見」(47)進入，感官語境轉向聽覺與視覺。</li>
+                </ul>
+                <p class="cluster-section-heading">C3　寂靜／寂滅</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>滅(272) 如(205) 智(164) 是(138) 來(133) 法(131) 靜(119) 諸(104) 一(91) 已(83)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>滅(80) 子(58) 師(54) 大(52) 一(43) 道(43) 人(41) 是(29) 示(29) 二(28)</td><td>二 人 大 子 師 示 道</td><td>來 如 已 智 法 諸 靜</td></tr>
+                        <tr><td>明</td><td>滅(206) 法(136) 靜(112) 心(107) 一(102) 生(78) 佛(77) 如(75) 故(75) 十(69)</td><td>佛 十 如 心 故 法 生 靜</td><td>二 人 大 子 師 是 示 道</td></tr>
+                        <tr><td>清</td><td>滅(152) 示(92) 法(81) 十(76) 一(71) 師(69) 三(58) 曰(57) 大(57) 相(56)</td><td>三 大 師 曰 相 示</td><td>佛 如 心 故 生 靜</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「滅如智法靜諸來」高密度佛典語境。</li>
+                    <li>宋元頻率大幅稀疏，「來如已智法諸靜」全消。</li>
+                    <li>明代佛典語境局部復現（「法靜佛如」回歸）。</li>
+                    <li>清代「示師三」等指向經師傳承語境。</li>
+                </ul>
+                <p class="cluster-section-heading">C4　本體／感應</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>照(38) 動(36) 故(34) 空(33) 常(27) 物(26) 心(23) 理(22) 是(21) 法(20)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>動(119) 感(86) 心(62) 天(60) 是(58) 一(50) 通(48) 照(44) 空(42) 道(40)</td><td>一 天 感 通 道</td><td>常 故 法 物 理</td></tr>
+                        <tr><td>明</td><td>照(95) 空(89) 動(85) 即(81) 故(74) 心(72) 相(67) 是(66) 非(63) 常(61)</td><td>即 常 故 相 非</td><td>一 天 感 通 道</td></tr>
+                        <tr><td>清</td><td>感(250) 體(140) 心(119) 動(117) 是(111) 本(109) 常(104) 一(99) 謂(96) 知(92)</td><td>一 感 本 知 謂 體</td><td>即 故 照 相 空 非</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>宋元「感通天」確立，程顥「天地萬物一體」思路進入語境。</li>
+                    <li>清代「感」(250)「體」(140)「本」(109)「謂」(96)「知」(92)全面高頻，「寂感」「本體」概念在清代達峰，反映宋明理學的持續影響。</li>
+                </ul>
+                <p class="cluster-section-heading">C5　清寂／孤寂</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>山(55) 人(49) 來(30) 空(30) 歸(24) 春(23) 青(21) 落(20) 花(20) 長(20)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>春(66) 人(56) 花(49) 山(45) 風(41) 落(34) 岑(28) 一(24) 月(23) 水(22)</td><td>一 岑 月 水 風</td><td>來 歸 空 長 青</td></tr>
+                        <tr><td>明</td><td>人(38) 山(30) 花(24) 春(21) 空(20) 愁(19) 風(19) 雲(18) 岑(18) 夜(18)</td><td>夜 愁 空 雲</td><td>一 月 水 落</td></tr>
+                        <tr><td>清</td><td>山(35) 人(30) 一(24) 月(23) 空(21) 雲(19) 中(18) 風(18) 青(17) 作(15)</td><td>一 中 作 月 青</td><td>夜 岑 愁 春 花</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>宋元「岑」(28)進入，「岑寂」搭配出現。</li>
+                    <li>清代「岑」消失，「作」「中」「月」「青」進入，空間語境轉向。</li>
+                </ul>
+            </div>
+
+            <!-- 寞 -->
+            <div class="tab-pane fade" id="ctx-寞">
+                <p class="cluster-section-heading">C1　典籍／儀注</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>一(34) 人(19) 大(18) 書(17) 曰(16) 事(14) 下(14) 公(14) 反(14) 酬(13)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>一(154) 日(64) 人(57) 事(54) 曰(53) 書(43) 二(42) 八(42) 子(40) 十(37)</td><td>二 八 十 子 日</td><td>下 公 反 大 酬</td></tr>
+                        <tr><td>明</td><td>一(247) 人(80) 日(73) 二(68) 八(62) 王(62) 上(55) 出(53) 酬(51) 口(50)</td><td>上 出 口 王 酬</td><td>事 十 子 曰 書</td></tr>
+                        <tr><td>清</td><td>一(223) 日(80) 十(62) 人(60) 口(60) 書(57) 文(51) 八(49) 二(47) 年(46)</td><td>十 年 文 書</td><td>上 出 王 酬</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「一」始終最高頻且絕對頻率極高（明 247、清 223）；詞彙異質性強（數字類「二八十」、書名類「書文」、禮儀類「酬」交雜）。</li>
+                    <li>符合 OCR 殘損後典籍文本混拼的特徵，語義信號弱。</li>
+                </ul>
+                <p class="cluster-section-heading">C2　幽寂／落寞</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>冥(99) 曰(57) 人(33) 一(29) 日(26) 君(25) 古(25) 作(23) 空(23) 言(22)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>索(311) 落(195) 一(194) 人(181) 作(164) 何(110) 山(110) 事(109) 寂(108) 冥(102)</td><td>事 何 寂 山 索 落</td><td>古 君 日 曰 空 言</td></tr>
+                        <tr><td>明</td><td>落(125) 索(104) 人(89) 山(64) 一(64) 天(56) 中(50) 子(47) 日(45) 君(43)</td><td>中 君 天 子 日</td><td>事 何 作 冥 寂</td></tr>
+                        <tr><td>清</td><td>一(167) 落(155) 冥(124) 寂(122) 索(115) 作(108) 人(101) 天(84) 惟(74) 山(73)</td><td>作 冥 寂 惟</td><td>中 君 子 日</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐代「冥」(99)主導，「冥漠/冥寞」用法為主。</li>
+                    <li>宋元「索」(311)「落」(195)爆發，「索寞」「落寞」複合詞蓬勃，「寂」(108)同步進入。</li>
+                    <li>清代「冥」(124)「寂」(122)復歸，複合詞語境多樣化（「冥寞」「索寞」「落寞」「寂寞」並存）。</li>
+                </ul>
+                <p class="cluster-section-heading">C3　辭賦</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>一(38) 酬(15) 驪(12) 日(12) 鑿(11) 作(10) 蟲(10) 露(10) 反(10) 嗣(9)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>一(74) 口(24) 酬(23) 驪(19) 黼(18) 顯(18) 蟲(16) 山(15) 二(15) 醴(15)</td><td>二 口 山 醴 顯 黼</td><td>作 反 嗣 日 鑿 露</td></tr>
+                        <tr><td>明</td><td>一(158) 八(62) 酬(59) 口(45) 人(32) 川(31) 關(30) 靈(28) 山(27) 臺(26)</td><td>人 八 川 臺 關 靈</td><td>二 蟲 醴 顯 驪 黼</td></tr>
+                        <tr><td>清</td><td>一(86) 蠶(80) 臺(43) 翼(40) 作(36) 霆(35) 囂(34) 鑿(33) 靈(33) 韓(29)</td><td>作 囂 翼 蠶 鑿 霆 韓</td><td>人 八 口 山 川 酬 關</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「驪」「鑿」「蟲」等生僻辭賦用字為標誌。</li>
+                    <li>清代「蠶」(80)「翼」「霆」「囂」「鑿」高頻，辭賦語境反而在清代最活躍，反映文人擬古辭賦的創作傳統。</li>
+                </ul>
+            </div>
+
+            <!-- 寂寞 -->
+            <div class="tab-pane fade" id="ctx-寂寞">
+                <p class="cluster-section-heading">C1　蕭條／荒廢</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>山(107) 人(97) 曰(81) 日(73) 一(70) 何(67) 春(67) 秋(66) 落(59) 江(54)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>人(82) 山(74) 作(61) 一(61) 風(52) 花(43) 春(43) 時(41) 空(39) 夜(37)</td><td>作 夜 時 空 花 風</td><td>何 日 曰 江 秋 落</td></tr>
+                        <tr><td>明</td><td>人(77) 空(60) 花(60) 一(54) 山(54) 風(52) 秋(43) 日(39) 春(36) 中(36)</td><td>中 日 秋</td><td>作 夜 時</td></tr>
+                        <tr><td>清</td><td>人(90) 山(84) 一(83) 花(70) 空(61) 風(59) 月(46) 雲(45) 秋(45) 春(44)</td><td>月 雲</td><td>中 日</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>「山人春秋花風」自然景物主導，朝代間最穩定的語義群，語義漂移小。</li>
+                </ul>
+                <p class="cluster-section-heading">C2　孤寂／失意</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>人(134) 山(82) 一(74) 日(67) 春(59) 花(58) 風(58) 何(57) 夜(55) 空(54)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>人(298) 一(178) 山(176) 風(156) 春(149) 花(131) 空(124) 何(121) 來(109) 歸(106)</td><td>來 歸</td><td>夜 日</td></tr>
+                        <tr><td>明</td><td>人(247) 山(193) 一(138) 空(137) 風(136) 花(129) 何(113) 雲(111) 秋(110) 春(100)</td><td>秋 雲</td><td>來 歸</td></tr>
+                        <tr><td>清</td><td>山(200) 人(199) 一(154) 風(132) 花(123) 空(115) 春(113) 秋(103) 雲(97) 中(86)</td><td>中</td><td>何</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>唐→宋元「人」從 134 增至 298，樣本量與搭配密度均大增。</li>
+                    <li>宋元「來」(109)「歸」(106)高頻進入，旅人歸家語境（「寂寞歸來」「寂寞而歸」）鮮明。</li>
+                    <li>清代山/人同為最高頻（200/199），整體語義穩定，是比例最大的語義群。</li>
+                </ul>
+                <p class="cluster-section-heading">C3　空寂／玄理</p>
+                <div class="table-responsive">
+                <table class="table table-sm table-striped context-table">
+                    <thead class="table-dark"><tr><th>朝代</th><th>top-10 搭配字 <span style="font-weight:400; color:#9ca3af; font-size:0.8em;">頻率高→低</span></th><th>新進入</th><th>消失</th></tr></thead>
+                    <tbody>
+                        <tr><td>唐</td><td>曰(89) 子(80) 作(69) 人(66) 一(50) 清(47) 可(46) 道(46) 生(45) 聲(44)</td><td>—</td><td>—</td></tr>
+                        <tr><td>宋元</td><td>濵(86) 人(61) 相(52) 子(45) 濱(45) 心(39) 一(39) 生(38) 作(38) 是(35)</td><td>心 是 濱 濵 相</td><td>可 曰 清 聲 道</td></tr>
+                        <tr><td>明</td><td>人(85) 一(69) 自(56) 空(55) 山(54) 子(50) 是(48) 可(48) 如(48) 能(46)</td><td>可 如 山 空 能 自</td><td>作 心 濱 濵 生 相</td></tr>
+                        <tr><td>清</td><td>一(99) 人(98) 山(77) 生(55) 何(54) 得(53) 門(52) 心(52) 來(51) 子(50)</td><td>何 來 得 心 生 門</td><td>可 如 是 空 能 自</td></tr>
+                    </tbody>
+                </table>
+                </div>
+                <ul class="cluster-analysis">
+                    <li>宋元「濵/濱」(86/45)異常高頻，疑為特定地名或人名，語料偏向特定文本。</li>
+                    <li>明代「山空自」等自然語境進入。</li>
+                    <li>清代「門」(52)「來」(51)「得」(53)「心」(52)進入，佛道空寂語境浮現。</li>
+                </ul>
+            </div>
+
+        </div><!-- /tab-content -->
+
+        <!-- 跨字觀察 -->
+        <div class="mt-5">
+            <h4 class="mb-4" style="font-weight:700; color:#141c25;">跨字觀察</h4>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="finding-block">
+                        <h5>「給孤獨園」語境同步斷裂</h5>
+                        <p>孤C5「佛樹給園舍」與獨C4「佛祇樹國給孤園舍衛」在宋元同時清空，兩字佛典語境的共同斷裂點。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="finding-block">
+                        <h5>「孤獨」並列唐代最密</h5>
+                        <p>孤C3「獨」(62)、獨C1「孤」(152)，宋元均大幅下降，清代獨C1「孤」復現(76)，呈 U 形軌跡。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="finding-block">
+                        <h5>「索寞／落寞」宋元爆發</h5>
+                        <p>寞C2「索」(311)「落」(195)宋元突增，「寂」(108)同步進入，是「寞」語義史最明顯的轉折點。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="finding-block">
+                        <h5>寂C4「寂感」清代達峰</h5>
+                        <p>「感」(250)「體」(140)「本」(109)在清代全面高頻，宋明理學「寂感」概念持續活躍至清。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ── Section 6：LLM 場景標注 ── -->
+<section id="llm-section" class="section">
+    <div class="container">
+        <h2 class="section-heading text-center">LLM 場景標注</h2>
+        <p class="text-center mb-4" style="color:rgba(255,255,255,0.5); font-size:0.92rem;">
+            輸入古典漢語文段，由 LLM 自動標注所屬寂寞場景
+        </p>
+
+        <!-- 圖例 -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8">
+                <div class="d-flex flex-wrap gap-2 justify-content-center">
+                    <span class="scene-legend-badge scene-legend-空間孤絕">空間孤絕</span>
+                    <span class="scene-legend-badge scene-legend-人際疏離">人際疏離</span>
+                    <span class="scene-legend-badge scene-legend-時間孤寂">時間孤寂</span>
+                    <span class="scene-legend-badge scene-legend-修行靜默">修行靜默</span>
+                    <span class="scene-legend-badge scene-legend-仕途失意">仕途失意</span>
+                    <span class="scene-legend-badge scene-legend-喪親孤苦">喪親孤苦</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 輸入區 -->
+        <div class="row justify-content-center mb-3">
+            <div class="col-lg-8">
+                <textarea id="llm-input" class="llm-textarea" rows="5"
+                    placeholder="輸入古典漢語文段…&#10;例：千山鳥飛絕，萬徑人蹤滅。孤舟蓑笠翁，獨釣寒江雪。"></textarea>
+            </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8 d-flex justify-content-end align-items-center">
+                <button id="llm-submit" class="btn btn-primary px-4" onclick="annotateText()">
+                    <i class="fas fa-robot me-2"></i>標注場景
+                </button>
+            </div>
+        </div>
+
+        <!-- 讀取中 -->
+        <div id="llm-loading" class="text-center mb-4" style="display:none;">
+            <div class="spinner-border text-info" role="status"></div>
+            <div style="color:rgba(255,255,255,0.5); margin-top:0.6rem; font-size:0.88rem;">分析中，請稍候…</div>
+        </div>
+
+        <!-- 結果 -->
+        <div id="llm-result" class="row justify-content-center" style="display:none;">
+            <div class="col-lg-8">
+                <div class="llm-result-card">
+                    <div id="llm-score" class="mb-3"></div>
+                    <div id="llm-labels" class="mb-3"></div>
+                    <hr style="border-color:rgba(255,255,255,0.1); margin: 0.75rem 0;">
+                    <div id="llm-text-output" class="llm-text-output"></div>
+                    <div id="llm-reason" style="display:none; margin-top:1rem; padding-top:0.85rem; border-top:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.8;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 錯誤 -->
+        <div id="llm-error" class="row justify-content-center" style="display:none;">
+            <div class="col-lg-8">
+                <div style="background:rgba(239,68,68,0.1); border:1px solid rgba(239,68,68,0.3); border-radius:8px; padding:1rem 1.2rem; color:#fca5a5; font-size:0.88rem;">
+                    <i class="fas fa-exclamation-triangle me-2"></i><span id="llm-error-msg"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 靜態示範 -->
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-10">
+                <div style="color:rgba(255,255,255,0.25); font-size:0.75rem; text-align:center; margin-bottom:1.2rem; letter-spacing:0.08em; text-transform:uppercase;">示範範例</div>
+                <div class="row g-3">
+                    <!-- 示範一：杜甫〈登高〉 -->
+                    <div class="col-12 col-md-6">
+                        <div class="llm-result-card h-100">
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.55); font-size:0.85rem; margin-right:0.8rem;">寂寞感強度</span>
+                                <span style="color:#098dcf; font-size:1.3rem; line-height:1;">● ● ● ● ●</span>
+                                <span style="color:rgba(255,255,255,0.35); font-size:0.85rem; margin-left:0.6rem;">5 / 5</span>
+                            </div>
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-right:0.4rem;">偵測到的場景</span>
+                                <span class="scene-badge scene-badge-空間孤絕">空間孤絕</span>
+                                <span class="scene-badge scene-badge-時間孤寂">時間孤寂</span>
+                                <span class="scene-badge scene-badge-仕途失意">仕途失意</span>
+                                <span class="scene-badge scene-badge-人際疏離">人際疏離</span>
+                            </div>
+                            <hr style="border-color:rgba(255,255,255,0.1); margin: 0.75rem 0;">
+                            <div class="llm-text-output"><span class="scene-span scene-空間孤絕">風急天高猿嘯哀，渚清沙白鳥飛回</span>。<span class="scene-span scene-時間孤寂">無邊落木蕭蕭下，不盡長江滾滾來</span>。<span class="scene-span scene-時間孤寂">萬里悲秋</span><span class="scene-span scene-仕途失意">常作客</span>，<span class="scene-span scene-人際疏離">百年多病獨登臺</span>。<span class="scene-span scene-仕途失意">艱難苦恨繁霜鬢，潦倒新停濁酒杯</span>。</div>
+                            <div style="margin-top:1rem; padding-top:0.85rem; border-top:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.8;">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; display:block; margin-bottom:0.35rem;">場景判斷說明</span>首聯以歸巢飛鳥對比無所歸依的詩人，鋪陳空間孤絕；頷聯以落葉與長江的有限／無限對比，呈現最純粹的時間孤寂。頸聯「萬里悲秋」承接悲秋傳統的時間意識，「常作客」的「常」字點出長年政治放逐的仕途失意；「獨登臺」直書無人相伴的人際疏離。尾聯以繁霜鬢與停酒杯收束，將報國無門的苦恨與身心俱疲凝為一體。
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 示範三：蘇軾〈江城子〉 -->
+                    <div class="col-12 col-md-6">
+                        <div class="llm-result-card h-100">
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.55); font-size:0.85rem; margin-right:0.8rem;">寂寞感強度</span>
+                                <span style="color:#098dcf; font-size:1.3rem; line-height:1;">● ● ● ● ●</span>
+                                <span style="color:rgba(255,255,255,0.35); font-size:0.85rem; margin-left:0.6rem;">5 / 5</span>
+                            </div>
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-right:0.4rem;">偵測到的場景</span>
+                                <span class="scene-badge scene-badge-喪親孤苦">喪親孤苦</span>
+                                <span class="scene-badge scene-badge-時間孤寂">時間孤寂</span>
+                                <span class="scene-badge scene-badge-空間孤絕">空間孤絕</span>
+                            </div>
+                            <hr style="border-color:rgba(255,255,255,0.1); margin: 0.75rem 0;">
+                            <div class="llm-text-output"><span class="scene-span scene-時間孤寂">十年生死兩茫茫</span>，不思量，自難忘。<span class="scene-span scene-喪親孤苦">千里孤墳，無處話淒涼</span>。<span class="scene-span scene-時間孤寂">縱使相逢應不識，塵滿面，鬢如霜</span>。夜來幽夢忽還鄉，小軒窗，正梳妝。<span class="scene-span scene-喪親孤苦">相顧無言，惟有淚千行</span>。料得年年腸斷處，<span class="scene-span scene-空間孤絕">明月夜，短松岡</span>。</div>
+                            <div style="margin-top:1rem; padding-top:0.85rem; border-top:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.8;">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; display:block; margin-bottom:0.35rem;">場景判斷說明</span>全詞以「十年生死兩茫茫」開篇，以時間跨度直點生死相隔的沉重。「千里孤墳，無處話淒涼」是喪親孤苦的核心——失去至親，連悲傷都無處訴說。「縱使相逢應不識」以歲月催老強化時間孤寂。夢中重逢，「相顧無言，惟有淚千行」以沉默代替語言，生死之隔使一切言語失效，是喪親之苦最深的表現。末句「明月夜，短松岡」以孤墳松岡的荒涼空間，將悲慟化為永恆。
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 示範二：王維〈過香積寺〉 -->
+                    <div class="col-12 col-md-6">
+                        <div class="llm-result-card h-100">
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.55); font-size:0.85rem; margin-right:0.8rem;">寂寞感強度</span>
+                                <span style="color:#098dcf; font-size:1.3rem; line-height:1;">● ● ●</span><span style="color:rgba(255,255,255,0.18); font-size:1.3rem; line-height:1;"> ● ●</span>
+                                <span style="color:rgba(255,255,255,0.35); font-size:0.85rem; margin-left:0.6rem;">3 / 5</span>
+                            </div>
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-right:0.4rem;">偵測到的場景</span>
+                                <span class="scene-badge scene-badge-空間孤絕">空間孤絕</span>
+                                <span class="scene-badge scene-badge-修行靜默">修行靜默</span>
+                            </div>
+                            <hr style="border-color:rgba(255,255,255,0.1); margin: 0.75rem 0;">
+                            <div class="llm-text-output">不知香積寺，數里入雲峰。<span class="scene-span scene-空間孤絕">古木無人徑</span>，<span class="scene-span scene-修行靜默">深山何處鐘</span>。<span class="scene-span scene-空間孤絕">泉聲咽危石，日色冷青松</span>。<span class="scene-span scene-空間孤絕">薄暮空潭曲</span>，<span class="scene-span scene-修行靜默">安禪制毒龍</span>。</div>
+                            <div style="margin-top:1rem; padding-top:0.85rem; border-top:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.8;">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; display:block; margin-bottom:0.35rem;">場景判斷說明</span>全詩以進山尋寺為線索，層層鋪陳深山孤僻意境。「古木無人徑」點出人跡罕至的空間孤絕；「深山何處鐘」以隱約傳來的鐘聲帶出修行靜默的氛圍。「泉聲咽危石，日色冷青松」以嗚咽泉聲與冷日光雙重渲染山中清冷。末句「安禪制毒龍」為全詩修行靜默的核心，以禪定對抗煩惱，呈現超脫世俗的澄靜意境。整體寂寞感偏向清寂而非苦寂。
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 示範四：納蘭性德〈浣溪沙〉 -->
+                    <div class="col-12 col-md-6">
+                        <div class="llm-result-card h-100">
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.55); font-size:0.85rem; margin-right:0.8rem;">寂寞感強度</span>
+                                <span style="color:#098dcf; font-size:1.3rem; line-height:1;">● ● ● ●</span><span style="color:rgba(255,255,255,0.18); font-size:1.3rem; line-height:1;"> ●</span>
+                                <span style="color:rgba(255,255,255,0.35); font-size:0.85rem; margin-left:0.6rem;">4 / 5</span>
+                            </div>
+                            <div class="mb-3">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-right:0.4rem;">偵測到的場景</span>
+                                <span class="scene-badge scene-badge-人際疏離">人際疏離</span>
+                                <span class="scene-badge scene-badge-空間孤絕">空間孤絕</span>
+                                <span class="scene-badge scene-badge-時間孤寂">時間孤寂</span>
+                                <span class="scene-badge scene-badge-喪親孤苦">喪親孤苦</span>
+                            </div>
+                            <hr style="border-color:rgba(255,255,255,0.1); margin: 0.75rem 0;">
+                            <div class="llm-text-output"><span class="scene-span scene-人際疏離">誰念西風獨自涼</span>，<span class="scene-span scene-空間孤絕">蕭蕭黃葉閉疏窗</span>，<span class="scene-span scene-時間孤寂">沉思往事立殘陽</span>。被酒莫驚春睡重，賭書消得潑茶香，<span class="scene-span scene-喪親孤苦">當時只道是尋常</span>。</div>
+                            <div style="margin-top:1rem; padding-top:0.85rem; border-top:1px solid rgba(255,255,255,0.08); color:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.8;">
+                                <span style="color:rgba(255,255,255,0.4); font-size:0.8rem; display:block; margin-bottom:0.35rem;">場景判斷說明</span>全詞以「誰念」起筆，點出無人念及的人際疏離——詩人獨自承受西風之涼，周遭無人能感同身受。「蕭蕭黃葉閉疏窗」以蕭瑟秋景渲染空間孤絕。「沉思往事立殘陽」以殘陽與往事交疊，呈現時間孤寂。下半闕轉入對往日夫妻生活的追憶，「當時只道是尋常」收束全詞——失去後才知是無可追回的珍貴，是喪親孤苦最內斂也最深重的表現形式。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="text-center">
+    <div class="container">
+        <p class="mb-1">孤・獨・寂・寞</p>
+        <p class="mb-0">人文 AI 共智未來先導計劃：寂寞的跨朝代語義演變分析</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="vendor/js/bootstrap.bundle.min.js"></script>
+<script>
+    // concordance 資料
+    let CONCORDANCE = {};
+    fetch('clusters.json').then(r => r.json()).then(d => { CONCORDANCE = d; }).catch(() => {});
+
+    // 平滑捲動
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            e.preventDefault();
+            const t = document.querySelector(a.getAttribute('href'));
+            if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // ── 語義詳情展開 ──────────────────────────────────────────
+    const CLUSTER_DATA = {
+        "孤": {
+            "C1": {
+                label: "孤景／漂泊", count: 1623, pct: "20.3",
+                desc: "「孤」附著於詩文景物意象，如孤煙、孤帆、孤舟、孤雲、孤月、孤鴻等，形成單一、清冷、離群的畫面，進而帶出羈旅、漂泊與離思的情調。"
+            },
+            "C2": {
+                label: "失怙／喪親", count: 717, pct: "9.0",
+                desc: "「孤」指失去父母依靠的身分或處境，常見於少孤、遺孤、撫孤、孤兒等語境，核心是父母亡故、子弟失所，以及撫養遺孤的倫理情境。"
+            },
+            "C3": {
+                label: "勢孤／特出", count: 3149, pct: "39.5",
+                desc: "「孤」帶有兩層含義：一是處境上的勢單無援、孤立難支，如孤臣、孤城、孤身；二是品格上的卓立不群、清峻超拔，如孤秀、孤高、孤絕。兩者共享「單而離群」的語義核心，為全字最大群。"
+            },
+            "C4": {
+                label: "君稱／官稱", count: 431, pct: "5.4",
+                desc: "「孤」作為稱謂使用，包括君主或諸侯的自稱，以及古代禮制中的位階名稱，如三孤、孤卿等，屬政治與禮制語境下的制度性用法，與情感義完全無關。"
+            },
+            "C5": {
+                label: "名物／負義", count: 2057, pct: "25.8",
+                desc: "此群包含兩類用法：一是「孤」嵌入固定名稱、地名或佛典場所名，如孤竹、孤山、給孤獨園等；二是「孤負」一路的負義，表示辜負、有負於人，與孤單義無直接關聯。"
+            }
+        },
+        "獨": {
+            "C1": {
+                label: "單處／孤行", count: 1846, pct: "23.2",
+                desc: "「獨」修飾人物單獨存在或行動的狀態，如獨立、獨坐、獨行、獨處、獨倚、獨登等，強調的是一人自處、自行的具體姿態，而非抽象品質。"
+            },
+            "C2": {
+                label: "非但／豈止", count: 538, pct: "6.7",
+                desc: "「獨」作副詞，出現於否定或反詰結構，如不獨、非獨、豈獨、何獨，功能是擴張範圍、表示「不只如此」，帶遞進或補充說明的語氣，與單獨狀態義無關。"
+            },
+            "C3": {
+                label: "特出／專守", count: 3890, pct: "48.8",
+                desc: "「獨」的最大群，帶兩層抽象含義：一是突出於眾、獨到卓絕，如獨尊、獨絕；二是偏守其一、專任自持，如獨善、獨守。與 C1 不同，此群偏抽象品質與立場，不指具體的單人行動。"
+            },
+            "C4": {
+                label: "佛典／專名", count: 87, pct: "1.1",
+                desc: "「獨」幾乎全數出現於佛典固定場所名，如「祇樹給孤獨園」「給孤獨園」等，屬佛經敘事的起首套語，為語料中最小群。"
+            },
+            "C5": {
+                label: "特指／唯此", count: 1612, pct: "20.2",
+                desc: "「獨」在句中起特指、限定作用，凸出某一對象加以論說，如獨無、獨有、獨不、獨見、獨何，語義核心近於「惟此」「偏指此者」，有別於 C2 的「不只如此」。"
+            }
+        },
+        "寂": {
+            "C1": {
+                label: "寂寥／冷清", count: 1592, pct: "20.0",
+                desc: "「寂」形成外在景況的冷落與空疏，如寂寥、寂寂、岑寂，多見於孤城、古道、秋夜、空庭等場景。重點在景物本身的稀疏靜默，較少強調內在感受。"
+            },
+            "C2": {
+                label: "幽寂／靜定", count: 2619, pct: "33.0",
+                desc: "「寂」偏向內斂幽深的靜境，如枯寂、萬籟俱寂、幽寂、澄心之寂，常出現在獨坐、靜觀、幽居的情境中，帶有向內收攝的意味，超越單純的冷清。"
+            },
+            "C3": {
+                label: "寂靜／寂滅", count: 1760, pct: "22.2",
+                desc: "「寂」用於佛教術語，如寂滅、寂定、寂靜、示寂、圓寂等，屬禪定修行與涅槃教義中的概念性用法，已非一般景物或心理安靜之義。"
+            },
+            "C4": {
+                label: "本體／感應", count: 1252, pct: "15.8",
+                desc: "「寂」用於宋明理學的心性與體用論，核心句型如「寂然不動，感而遂通」「寂者心之本體」，常與感、照、用並論，是哲理語境下的形上學概念。"
+            },
+            "C5": {
+                label: "清寂／孤寂", count: 720, pct: "9.1",
+                desc: "「寂」營造清冷的詩化情境，但同時將人事孤清寫入其中，如書齋夜靜、孤影煢煢、閉門抱書等，比 C1 更偏「人與境一起寂」的身世感。"
+            }
+        },
+        "寞": {
+            "C1": {
+                label: "典籍／儀注", count: 2309, pct: "36.4",
+                desc: "「寞」出現在史志、類書、禮典儀注等非抒情文體的語境中，如史書考辨、政書禮儀，字義較難辨認，部分可能為其他字的形近誤識。"
+            },
+            "C2": {
+                label: "幽寂／落寞", count: 2964, pct: "46.7",
+                desc: "「寞」語義最穩定的核心群，包含兩支：一是幽遠空茫、冥杳難測，如冥寞、寥寞；二是身世失意、蕭條落拓，如落寞、索寞。為全字比例最高群，也是「寞」最具情感張力的用法。"
+            },
+            "C3": {
+                label: "辭賦", count: 1075, pct: "16.9",
+                desc: "「寞」主要出現在文學總集、詩注與辭賦文體中，如文選、詩箋等，屬文學語境下的用法，實際語義較難統一，與辭賦音韻需求有關。"
+            }
+        },
+        "寂寞": {
+            "C1": {
+                label: "蕭條／荒廢", count: 1640, pct: "22.1",
+                desc: "「寂寞」修飾外在景物、遺址或地景，強調荒涼、空廢與蕭條，如寂寞江山、寂寞沙洲冷、寂寞驪山道。情感與景物相互烘托，但語義中心仍在場景本身。"
+            },
+            "C2": {
+                label: "孤寂／失意", count: 3713, pct: "50.0",
+                desc: "「寂寞」的最大群，落在人物的內在情緒與生活處境，如寂寞守蓬蒿、寂寞掩重門、寂寞小樓，核心是文人的孤單、閒居、不得志與漂泊身世感。"
+            },
+            "C3": {
+                label: "空寂／玄理", count: 2076, pct: "28.0",
+                desc: "「寂寞」轉向虛無、空曠或佛道玄理，如精神虛無寂寞、心游寂寞、寂寞虛曠物莫能測，已超越日常情緒，成為境界化或哲理化的抽象用法。"
+            }
+        }
+    };
+
+    document.querySelectorAll('.cluster-badge[data-cluster]').forEach(badge => {
+        badge.addEventListener('click', function () {
+            const word    = this.dataset.word;
+            const cluster = this.dataset.cluster;
+            const row     = document.getElementById('detail-row-' + word);
+            const panel   = document.getElementById('detail-panel-' + word);
+            const data    = CLUSTER_DATA[word]?.[cluster];
+
+            // 再次點同一個 → 收起
+            if (this.classList.contains('active')) {
+                this.classList.remove('active');
+                row.style.display = 'none';
+                return;
+            }
+
+            // 切換 active 狀態
+            document.querySelectorAll(`.cluster-badge[data-word="${word}"]`).forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            if (data && panel) {
+                const concLines = (CONCORDANCE[word]?.[cluster] || []).map(ex => {
+                    const src = [ex.dynasty, ex.title].filter(Boolean).join('・');
+                    return `<tr>
+                        <td class="conc-left">${ex.left}</td>
+                        <td class="conc-key">【${ex.key}】</td>
+                        <td class="conc-right">${ex.right}</td>
+                        <td class="conc-src">${src}</td>
+                    </tr>`;
+                }).join('');
+
+                panel.innerHTML = `
+                    <div class="detail-title">${word}　${cluster}　${data.label}</div>
+                    <div class="detail-stat">${data.count.toLocaleString()} 筆・${data.pct}%</div>
+                    <div class="detail-label">說明</div>
+                    <p>${data.desc}</p>
+                    ${concLines ? `
+                    <div class="detail-label" style="margin-top:1rem;">語料例句</div>
+                    <div class="table-responsive">
+                    <table class="conc-table"><tbody>${concLines}</tbody></table>
+                    </div>` : ''}
+                `;
+                row.style.display = '';
+            }
+        });
+    });
+
+    // ── LLM 場景標注 ──────────────────────────────────────────
+    const SCENE_TYPES = ['空間孤絕', '人際疏離', '時間孤寂', '修行靜默', '仕途失意', '喪親孤苦'];
+
+    async function annotateText() {
+        const text = document.getElementById('llm-input').value.trim();
+        if (!text) return;
+
+        const btn      = document.getElementById('llm-submit');
+        const loading  = document.getElementById('llm-loading');
+        const result   = document.getElementById('llm-result');
+        const errorDiv = document.getElementById('llm-error');
+
+        btn.disabled = true;
+        loading.style.display = 'block';
+        result.style.display  = 'none';
+        errorDiv.style.display = 'none';
+
+        try {
+            const resp = await fetch('http://localhost:8080/api/annotate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text })
+            });
+
+            if (!resp.ok) {
+                const err = await resp.json().catch(() => ({}));
+                throw new Error(err.error || `伺服器回傳 ${resp.status}`);
+            }
+
+            const parsed = await resp.json();
+            renderResult(text, parsed);
+
+        } catch (err) {
+            document.getElementById('llm-error-msg').textContent = err.message;
+            errorDiv.style.display = 'block';
+        }
+
+        btn.disabled = false;
+        loading.style.display = 'none';
+    }
+
+    function renderResult(text, data) {
+        // 評分
+        const score = Math.min(5, Math.max(0, parseInt(data.score) || 0));
+        const dots = Array.from({ length: 5 }, (_, i) =>
+            `<span style="color:${i < score ? '#098dcf' : 'rgba(255,255,255,0.18)'}; font-size:1.3rem; line-height:1;">●</span>`
+        ).join(' ');
+        document.getElementById('llm-score').innerHTML =
+            `<span style="color:rgba(255,255,255,0.55); font-size:0.85rem; margin-right:0.8rem;">寂寞感強度</span>${dots}<span style="color:rgba(255,255,255,0.35); font-size:0.85rem; margin-left:0.6rem;">${score} / 5</span>`;
+
+        // 標籤
+        const spans = Array.isArray(data.spans) ? data.spans : [];
+        const labelsFound = [...new Set(spans.map(s => s.label).filter(l => SCENE_TYPES.includes(l)))];
+        document.getElementById('llm-labels').innerHTML = labelsFound.length
+            ? `<span style="color:rgba(255,255,255,0.4); font-size:0.8rem; margin-right:0.4rem;">偵測到的場景</span>` +
+              labelsFound.map(l => `<span class="scene-badge scene-badge-${l}">${l}</span>`).join('')
+            : `<span style="color:rgba(255,255,255,0.3); font-size:0.82rem;">未偵測到特定場景</span>`;
+
+        // highlight 文本
+        const annotations = [];
+        for (const span of spans) {
+            if (!span.text || !SCENE_TYPES.includes(span.label)) continue;
+            const idx = text.indexOf(span.text);
+            if (idx !== -1) annotations.push({ start: idx, end: idx + span.text.length, label: span.label });
+        }
+        annotations.sort((a, b) => a.start - b.start);
+
+        let html = '';
+        let pos = 0;
+        for (const ann of annotations) {
+            if (ann.start < pos) continue; // 略過重疊
+            if (ann.start > pos) html += escapeHtml(text.slice(pos, ann.start));
+            html += `<span class="scene-span scene-${ann.label}" data-label="${ann.label}">${escapeHtml(text.slice(ann.start, ann.end))}</span>`;
+            pos = ann.end;
+        }
+        if (pos < text.length) html += escapeHtml(text.slice(pos));
+
+        document.getElementById('llm-text-output').innerHTML = html;
+
+        // 說明
+        const reasonEl = document.getElementById('llm-reason');
+        if (data.reason) {
+            reasonEl.innerHTML = `<span style="color:rgba(255,255,255,0.4); font-size:0.8rem; display:block; margin-bottom:0.35rem;">場景判斷說明</span>${escapeHtml(data.reason)}`;
+            reasonEl.style.display = 'block';
+        } else {
+            reasonEl.style.display = 'none';
+        }
+
+        document.getElementById('llm-result').style.display = 'block';
+    }
+
+    function escapeHtml(str) {
+        return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    // 靜態示範 span 自動加 data-label（從 class 名稱抓）
+    document.querySelectorAll('.scene-span').forEach(el => {
+        const cls = [...el.classList].find(c => c.startsWith('scene-') && c !== 'scene-span');
+        if (cls) el.dataset.label = cls.replace('scene-', '');
+    });
+
+    // ── 隱藏 top-10 搭配字欄的頻率數字 ──────────────────────────
+    document.querySelectorAll('.context-table td:nth-child(2)').forEach(td => {
+        td.innerHTML = td.innerHTML.replace(/\((\d+)\)/g, '<span class="freq-count">($1)</span>');
+    });
+</script>
+
+</body>
+</html>
